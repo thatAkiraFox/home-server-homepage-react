@@ -1,7 +1,28 @@
 import services from "../../services.json";
-import settings from "../../settings.json";
+
+function Button({ name }) {
+  return <button>{name}</button>;
+}
+
+function GroupContainer({ children, name }) {
+  return (
+    <>
+      <div className="container">
+        <label>{name}</label>
+        {children}
+      </div>
+    </>
+  );
+}
 
 export default function Body() {
-  console.log(services, settings);
-  return <></>;
+  return services.map((service) => (
+    <GroupContainer
+      name={service.name}
+      key={service.name}
+      children={service.apps.map((app) => (
+        <Button name={app.name} key={app.name} />
+      ))}
+    />
+  ));
 }
