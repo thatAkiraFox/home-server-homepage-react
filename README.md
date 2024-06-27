@@ -1,30 +1,71 @@
-# React + TypeScript + Vite
+# Disclaimer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a personal project. Its sole purpose is to allow me to learn React and
+use it in a small project so that I can easily use it in an upcoming project
+for my university's Web Technologies course.
 
-Currently, two official plugins are available:
+# Configuration
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This homepage accepts two configuration files: `services.json` and
+`settings.json`.
 
-## Expanding the ESLint configuration
+### `settings.json`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Starting with `settings.json`, it contains a single object with just two key-value
+pairs:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+```jsonc
+{
+  "hostname": null,
+  "logo": null
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- `hostname` is a string that sets a label on top of the page header.\
+  If left `null` or set to an empty string, a generic hostname will be used.
+- `logo` can be an URL to a local file or to an external image.\
+  If left `null` or set to an empty string, a generic logo will be used.
+
+### `services.json`
+
+This file contains an array of objects. Each objects defines an app group, and
+each app group contains an arbitrary number of apps.
+
+The file structure is as follows:
+
+```jsonc
+// Array of app groups
+[
+  // First app group
+  {
+    "name": "first group name",
+    "apps": [ // Apps inside the group
+      {
+        "name": "first app name",
+        "url": "",
+        "logo": null
+      },
+      {
+        "name": "second app name",
+        "url": "",
+        "logo": ""
+      }
+    ]
+  },
+  // Second App Group
+  {
+    ...
+  }
+]
+```
+
+- Each app group contains a key-value pair for the app group name and an array
+  of objects (the apps in the group)
+- Each app is defined by three key-value pairs:
+  - `name` is the name of the app.\
+    If set to `null` or to an empty string, an error message will be displayed.
+  - `url` is the URL of the app where the user will be redirected upon clicking
+    on the relative button.\
+    If set to `null` or to an empty string, an error message will be displayed.
+  - `logo` is an URL to an internal or external image to use as an app logo.\
+    If set to `null` or to an empty string, a generic logo will be used.
