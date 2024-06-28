@@ -6,23 +6,35 @@ import services from "../../services.json";
  */
 function Button({
   name,
+  description,
   url,
   logo,
 }: {
   name: string;
+  description: string;
   url: string;
   logo: string;
 }) {
-  if (url === "" || logo === "") {
-    throw new Error(
-      "Make sure that URL and LOGO are NOT NULL OR EMPTY STRINGS"
+  if (url === "" || url === null) {
+    return (
+      <a className="button" href={url} target="_blank">
+        <img className="button-logo" src={logo} />
+        <div className="button-name-description">
+          {name}
+          <label className="error">Button URL missing!</label>
+        </div>
+      </a>
     );
   }
+
   return (
-    <div className="button">
-      <img src={logo} />
-      <a href={url}>{name}</a>
-    </div>
+    <a className="button" href={url} target="_blank">
+      <img className="button-logo" src={logo} />
+      <div className="button-name-description">
+        {name}
+        {description}
+      </div>
+    </a>
   );
 }
 
@@ -55,12 +67,18 @@ function GroupContainer({
  * 'map' on the inner apps array to create the various buttons for each app.
  */
 export default function Body() {
-  return services.map((service) => (
+  return services.map((group) => (
     <GroupContainer
-      name={service.name}
-      key={service.name}
-      children={service.apps.map((app) => (
-        <Button name={app.name} key={app.name} url={app.url} logo={app.logo} />
+      name={group.name}
+      key={group.name}
+      children={group.apps.map((app) => (
+        <Button
+          name={app.name}
+          key={app.name}
+          description={app.description}
+          url={app.url}
+          logo={app.logo}
+        />
       ))}
     />
   ));

@@ -11,7 +11,7 @@ export default function Header() {
       <h1>
         {hostname}
         <br />
-        "Services Dashboard"
+        Services Dashboard
       </h1>
     </div>
   );
