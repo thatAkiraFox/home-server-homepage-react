@@ -17,22 +17,22 @@ function Button({
 }) {
   if (url === "" || url === null) {
     return (
-      <a className="button" href={url} target="_blank">
+      <a className="button" href={"//" + url} target="_blank">
         <img className="button-logo" src={logo} />
         <div className="button-name-description">
-          {name}
-          <label className="error">Button URL missing!</label>
+          <span>{name}</span>
+          <span className="error">Button URL missing!</span>
         </div>
       </a>
     );
   }
 
   return (
-    <a className="button" href={url} target="_blank">
+    <a className="button" href={"//" + url} target="_blank">
       <img className="button-logo" src={logo} />
       <div className="button-name-description">
-        {name}
-        {description}
+        <span className="button-name">{name}</span>
+        <span className="button-description">{description}</span>
       </div>
     </a>
   );
@@ -46,12 +46,10 @@ function GroupContainer({
   children: ReactNode;
 }) {
   return (
-    <>
-      <div className="container">
-        <h1>{name}</h1>
-        {children}
-      </div>
-    </>
+    <div className="group-container">
+      <h2>{name}</h2>
+      <div className="buttons-container">{children}</div>
+    </div>
   );
 }
 
@@ -66,20 +64,24 @@ function GroupContainer({
  * and create the HTML containers for them and, while doing that, we execute
  * 'map' on the inner apps array to create the various buttons for each app.
  */
-export default function Body() {
-  return services.map((group) => (
-    <GroupContainer
-      name={group.name}
-      key={group.name}
-      children={group.apps.map((app) => (
-        <Button
-          name={app.name}
-          key={app.name}
-          description={app.description}
-          url={app.url}
-          logo={app.logo}
+export default function Main() {
+  return (
+    <main>
+      {services.map((group) => (
+        <GroupContainer
+          name={group.name}
+          key={group.name}
+          children={group.apps.map((app) => (
+            <Button
+              name={app.name}
+              key={app.name}
+              description={app.description}
+              url={app.url}
+              logo={app.logo}
+            />
+          ))}
         />
       ))}
-    />
-  ));
+    </main>
+  );
 }
