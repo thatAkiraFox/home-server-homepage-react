@@ -12,17 +12,17 @@ body {
 .group-container {
   display: flex;
   flex-direction: column;
-}
 
-.buttons-container {
-  display: flex;
-  gap: 30px;
+  .buttons-container {
+    display: flex;
+    gap: 30px;
+  }
 }
 
 .button {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
 
   background-color: white;
   height: 100px;
@@ -31,20 +31,36 @@ body {
   box-shadow: lightgrey 0 0 20px;
 
   text-decoration: none;
-}
 
-.button-name {
-  font-size: 25px;
-  color: black;
-}
+  .button-logo {
+    height: 100px;
+    width: 100px;
 
-.button-description {
-  font-size: 15px;
-  color: grey;
-}
+    padding: 10px;
 
-.button-name-description {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
+    box-sizing: border-box;
+  }
+
+  .button-name {
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+  }
+
+  .button-description {
+    font-size: medium;
+    color: grey;
+  }
+
+  .error {
+    font-style: italic;
+    color: crimson;
+  }
+
+  .button-name-description {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 5px;
+  }
 }

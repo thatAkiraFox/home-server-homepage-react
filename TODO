@@ -1,6 +1,7 @@
 - Work pending in 'header.tsx'
-- Start working on the CSS
 - Find a decent source for the generic logos
 - Start working on 'footer.tsx'
 - Add the new 'description' field in README
-- Other stuff idk
+- Increase modularity
+    - Create a 'components' directory
+    - One function => one responsibility, hopefully increases legibility as well

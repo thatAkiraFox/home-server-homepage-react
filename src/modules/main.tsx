@@ -17,10 +17,10 @@ function Button({
 }) {
   if (url === "" || url === null) {
     return (
-      <a className="button" href={"//" + url} target="_blank">
+      <a className="button">
         <img className="button-logo" src={logo} />
         <div className="button-name-description">
-          <span>{name}</span>
+          <span className="button-name">{name}</span>
           <span className="error">Button URL missing!</span>
         </div>
       </a>
