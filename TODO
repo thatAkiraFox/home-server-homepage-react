@@ -2,6 +2,4 @@
 - Find a decent source for the generic logos
 - Start working on 'footer.tsx'
 - Add the new 'description' field in README
-- Increase modularity
-    - Create a 'components' directory
-    - One function => one responsibility, hopefully increases legibility as well
+- Link to the configuration on Github if there are empty props in 'Button'

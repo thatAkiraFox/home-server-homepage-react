@@ -1,7 +1,7 @@
 import "./index.css";
-import Main from "./modules/main";
-import Footer from "./modules/footer";
-import Header from "./modules/header";
+import Main from "./views/Main";
+import Footer from "./views/Footer";
+import Header from "./views/Header";
 
 export default function Index() {
   return (
