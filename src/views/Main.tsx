@@ -5,7 +5,11 @@ export default function Main() {
   return (
     <main>
       {services.map((group) => (
-        <GroupContainer name={group.name} appList={group.apps} />
+        <GroupContainer
+          name={group.name}
+          appList={group.apps}
+          key={group.name}
+        />
       ))}
     </main>
   );

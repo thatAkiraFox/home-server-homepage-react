@@ -13,7 +13,7 @@ function ButtonsContainer({
   return (
     <div className="buttons-container">
       {appList.map((app) => (
-        <Button app={app} />
+        <Button app={app} key={app.name} />
       ))}
     </div>
   );
@@ -34,7 +34,7 @@ export default function GroupContainer({
   return (
     <div className="group-container">
       <h2>{name}</h2>
-      <ButtonsContainer appList={appList} />
+      <ButtonsContainer appList={appList} key={name} />
     </div>
   );
 }
