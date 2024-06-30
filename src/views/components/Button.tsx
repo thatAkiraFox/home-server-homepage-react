@@ -28,22 +28,21 @@ function ButtonDescription({
 }
 
 export default function Button({
-  name,
-  description,
-  url,
-  logo,
+  app,
 }: {
-  name: string;
-  description: string;
-  url: string;
-  logo: string;
+  app: {
+    name: string;
+    description: string;
+    url: string;
+    logo: string;
+  };
 }) {
   return (
-    <a className="button" href={"//" + url} target="_blank">
-      <ButtonImg logo={logo} />
+    <a className="button" href={"//" + app.url} target="_blank">
+      <ButtonImg logo={app.logo} />
       <div className="button-name-description">
-        <span className="button-name">{name}</span>
-        <ButtonDescription url={url} description={description} />
+        <span className="button-name">{app.name}</span>
+        <ButtonDescription url={app.url} description={app.description} />
       </div>
     </a>
   );

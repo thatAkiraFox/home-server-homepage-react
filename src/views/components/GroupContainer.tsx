@@ -1,16 +1,40 @@
-import { ReactNode } from "react";
+import Button from "./Button";
+
+function ButtonsContainer({
+  appList,
+}: {
+  appList: {
+    name: string;
+    description: string;
+    url: string;
+    logo: string;
+  }[];
+}) {
+  return (
+    <div className="buttons-container">
+      {appList.map((app) => (
+        <Button app={app} />
+      ))}
+    </div>
+  );
+}
 
 export default function GroupContainer({
   name,
-  children,
+  appList,
 }: {
   name: string;
-  children: ReactNode;
+  appList: {
+    name: string;
+    description: string;
+    url: string;
+    logo: string;
+  }[];
 }) {
   return (
     <div className="group-container">
       <h2>{name}</h2>
-      <div className="buttons-container">{children}</div>
+      <ButtonsContainer appList={appList} />
     </div>
   );
 }
