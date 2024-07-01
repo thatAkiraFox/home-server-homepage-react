@@ -2,7 +2,7 @@ import settings from "../../settings.json";
 
 function setHostname() {
   return settings.hostname === null || settings.hostname === ""
-    ? "server"
+    ? null
     : settings.hostname;
 }
 

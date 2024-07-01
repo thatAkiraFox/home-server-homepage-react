@@ -27,6 +27,10 @@ function ButtonDescription({
   }
 }
 
+function setUrl(url: string) {
+  return url == null || url == "" ? "https://katb.in/ayufihesufu" : "//" + url;
+}
+
 export default function Button({
   app,
 }: {
@@ -37,8 +41,10 @@ export default function Button({
     logo: string;
   };
 }) {
+  const url = setUrl(app.url);
+
   return (
-    <a className="button" href={"//" + app.url} target="_blank">
+    <a className="button" href={url} target="_blank">
       <ButtonImg logo={app.logo} />
       <div className="button-text">
         <span className="button-name">{app.name}</span>
