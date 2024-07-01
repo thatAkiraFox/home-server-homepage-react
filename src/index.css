@@ -1,11 +1,9 @@
 body {
   background-color: whitesmoke;
-}
 
-#root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 75%;
+  margin: auto;
+  max-width: 1000px;
 
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -13,22 +11,39 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
+}
 
-  width: 90%;
-  max-width: 1000px;
+.header {
+  display: flex;
+  gap: 30px;
 
-  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .header-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .header-hostname {
+      font-size: 25px;
+    }
+
+    .header-label {
+      font-size: 50px;
+    }
+  }
 }
 
 .group-container {
   display: flex;
   flex-direction: column;
-
-  flex-wrap: wrap;
-
-  width: inherit;
 
   .buttons-container {
     display: flex;
@@ -44,7 +59,8 @@ main {
 
   background-color: white;
   height: 100px;
-  width: 300px;
+  max-width: 300px;
+  min-width: 300px;
   border-radius: 20px;
   box-shadow: lightgrey 0 0 20px;
 
@@ -75,7 +91,7 @@ main {
     color: crimson;
   }
 
-  .button-name-description {
+  .button-text {
     display: flex;
     flex-direction: column;
     align-items: baseline;

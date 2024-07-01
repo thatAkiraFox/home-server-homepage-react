@@ -4,7 +4,7 @@
  */
 function ButtonImg({ logo }: { logo: string }) {
   if (logo === "" || logo === null) {
-    return <img className="button-logo" src="/public/generic-button.png" />;
+    return <img className="button-logo" src="/generic-logo.png" />;
   } else {
     return <img className="button-logo" src={logo} />;
   }
@@ -40,7 +40,7 @@ export default function Button({
   return (
     <a className="button" href={"//" + app.url} target="_blank">
       <ButtonImg logo={app.logo} />
-      <div className="button-name-description">
+      <div className="button-text">
         <span className="button-name">{app.name}</span>
         <ButtonDescription url={app.url} description={app.description} />
       </div>

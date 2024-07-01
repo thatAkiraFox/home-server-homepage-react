@@ -33,7 +33,7 @@ export default function GroupContainer({
 }) {
   return (
     <div className="group-container">
-      <h2>{name}</h2>
+      <h2 className="group-container-name">{name}</h2>
       <ButtonsContainer appList={appList} key={name} />
     </div>
   );

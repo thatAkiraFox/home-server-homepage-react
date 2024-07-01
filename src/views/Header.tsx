@@ -1,20 +1,28 @@
 import settings from "../../settings.json";
 
+function setHostname() {
+  return settings.hostname === null || settings.hostname === ""
+    ? "server"
+    : settings.hostname;
+}
+
+function setLogo() {
+  return settings.logo === null || settings.logo === ""
+    ? "/generic-logo.png"
+    : settings.logo;
+}
+
 export default function Header() {
-  let hostname, logo;
-  if (settings.hostname === null || settings.hostname === "")
-    hostname = "Home Server";
+  const hostname = setHostname();
+  const logo = setLogo();
 
-  if (settings.logo === null || settings.logo === "")
-    // find placeholder logo
-
-    return (
-      <div className="header">
-        <img src={logo} />
-        <div className="header-text">
-          <h2 className="header-hostname">{hostname}</h2>
-          <h1 className="header-label">Services Dashboard</h1>
-        </div>
+  return (
+    <div className="header">
+      <img src={logo} className="header-logo" />
+      <div className="header-text">
+        <span className="header-hostname">{hostname}</span>
+        <span className="header-label">Services Dashboard</span>
       </div>
-    );
+    </div>
+  );
 }
