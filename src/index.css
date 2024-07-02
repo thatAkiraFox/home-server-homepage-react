@@ -32,6 +32,8 @@ main {
   .header-logo {
     width: 100px;
     height: 100px;
+
+    image-rendering: auto;
   }
 
   .header-text {

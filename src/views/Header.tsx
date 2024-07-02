@@ -8,7 +8,7 @@ function setHostname() {
 
 function setLogo() {
   return settings.logo === null || settings.logo === ""
-    ? "/generic-logo.png"
+    ? "/generic-header.png"
     : settings.logo;
 }
 
