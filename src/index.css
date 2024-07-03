@@ -104,11 +104,6 @@ main {
     color: grey;
   }
 
-  .error {
-    font-style: italic;
-    color: crimson;
-  }
-
   .button-text {
     display: flex;
     flex-direction: column;
@@ -119,6 +114,32 @@ main {
 
 .button:hover {
   transform: translateY(-5px);
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  gap: 5px;
+
+  border-style: solid;
+  border-color: crimson;
+
+  .error-title {
+    color: black;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .error-description {
+    color: gray;
+    font-style: italic;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -139,6 +160,12 @@ main {
     box-shadow: black 0 0 20px;
 
     .button-name {
+      color: white;
+    }
+  }
+
+  .error {
+    .error-title {
       color: white;
     }
   }

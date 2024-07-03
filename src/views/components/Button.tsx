@@ -11,24 +11,51 @@ function ButtonImg({ logo }: { logo: string }) {
 }
 
 /**
- * Conditionally show a warning instead of the description if the URL is empty
+ * Detect if the given 'app' object has null or empty properties (except logo)
  */
-function ButtonDescription({
-  url,
-  description,
-}: {
-  url: string;
+function detectConfigErrors(app: {
+  name: string;
   description: string;
+  url: string;
+  logo: string;
 }) {
-  if (url == null || url == "") {
-    return <span className="error">Button URL missing!</span>;
-  } else {
-    return <span className="button-description">{description}</span>;
+  for (let property in app) {
+    if (property != "logo" && (app[property] === "" || app[property] === null))
+      return true;
   }
+  return false;
 }
 
-function setUrl(url: string) {
-  return url == null || url == "" ? "https://katb.in/ayufihesufu" : "//" + url;
+function buttonConstructor(app: {
+  name: string;
+  description: string;
+  url: string;
+  logo: string;
+}) {
+  return (
+    <a className="button" href={"//" + app.url} target="_blank">
+      <ButtonImg logo={app.logo} />
+      <div className="button-text">
+        <span className="button-name">{app.name}</span>
+        <span className="button-description">{app.description}</span>
+      </div>
+    </a>
+  );
+}
+
+function errorButtonConstructor() {
+  return (
+    <a
+      className="button error"
+      href="https://katb.in/ayufihesufu"
+      target="_blank"
+    >
+      <span className="error-title">Configuration error detected!</span>
+      <span className="error-description">
+        Check your configuration or click here to read the documentation
+      </span>
+    </a>
+  );
 }
 
 export default function Button({
@@ -41,15 +68,9 @@ export default function Button({
     logo: string;
   };
 }) {
-  const url = setUrl(app.url);
-
-  return (
-    <a className="button" href={url} target="_blank">
-      <ButtonImg logo={app.logo} />
-      <div className="button-text">
-        <span className="button-name">{app.name}</span>
-        <ButtonDescription url={app.url} description={app.description} />
-      </div>
-    </a>
-  );
+  // Create an error button if any configuration error is detected, otherwise
+  // create a normal button
+  return detectConfigErrors(app)
+    ? errorButtonConstructor()
+    : buttonConstructor(app);
 }
