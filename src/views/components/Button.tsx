@@ -1,8 +1,10 @@
+import { AppInterface } from "./Interfaces";
+
 /**
  * Create an <img> HTML element that conditionally picks a generic icon when
  * the user doesn't provide a service-specific icon
  */
-function ButtonImg({ logo }: { logo: string }) {
+function ButtonImg({ logo }: { logo: string | null }) {
   if (logo === "" || logo === null) {
     return <img className="button-logo" src="/generic-logo.png" />;
   } else {
@@ -13,25 +15,15 @@ function ButtonImg({ logo }: { logo: string }) {
 /**
  * Detect if the given 'app' object has null or empty properties (except logo)
  */
-function detectConfigErrors(app: {
-  name: string;
-  description: string;
-  url: string;
-  logo: string;
-}) {
-  for (let property in app) {
-    if (property != "logo" && (app[property] === "" || app[property] === null))
+function detectConfigErrors(app: AppInterface) {
+  for (const property in app) {
+    if (property != "logo" && (app[property] === null || app[property] === ""))
       return true;
   }
   return false;
 }
 
-function buttonConstructor(app: {
-  name: string;
-  description: string;
-  url: string;
-  logo: string;
-}) {
+function buttonConstructor(app: AppInterface) {
   return (
     <a className="button" href={"//" + app.url} target="_blank">
       <ButtonImg logo={app.logo} />
@@ -58,16 +50,7 @@ function errorButtonConstructor() {
   );
 }
 
-export default function Button({
-  app,
-}: {
-  app: {
-    name: string;
-    description: string;
-    url: string;
-    logo: string;
-  };
-}) {
+export default function Button({ app }: { app: AppInterface }) {
   // Create an error button if any configuration error is detected, otherwise
   // create a normal button
   return detectConfigErrors(app)

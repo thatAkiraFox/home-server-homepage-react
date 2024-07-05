@@ -133,12 +133,10 @@ main {
   .error-title {
     color: black;
     font-weight: 500;
-    font-style: italic;
   }
 
   .error-description {
     color: gray;
-    font-style: italic;
   }
 }
 

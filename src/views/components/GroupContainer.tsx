@@ -1,15 +1,7 @@
 import Button from "./Button";
+import { AppInterface } from "./Interfaces";
 
-function ButtonsContainer({
-  appList,
-}: {
-  appList: {
-    name: string;
-    description: string;
-    url: string;
-    logo: string;
-  }[];
-}) {
+function ButtonsContainer({ appList }: { appList: AppInterface[] }) {
   return (
     <div className="buttons-container">
       {appList.map((app) => (
@@ -23,13 +15,8 @@ export default function GroupContainer({
   name,
   appList,
 }: {
-  name: string;
-  appList: {
-    name: string;
-    description: string;
-    url: string;
-    logo: string;
-  }[];
+  name: string | null;
+  appList: AppInterface[];
 }) {
   return (
     <div className="group-container">
