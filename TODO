@@ -1,7 +1,8 @@
 - Find a decent source for the generic logos
-- Start working on 'footer.tsx'
 - Add the new 'description' field in README
-- Link to the configuration on Github if there are empty props in 'Button'
 - Add credits to README
   - Google icons
   - katbin
+- Add favicon
+- Start working on mobile layout
+- Move fetching of 'settings.json' from 'Header' to 'index'

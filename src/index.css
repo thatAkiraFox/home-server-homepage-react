@@ -7,7 +7,7 @@ body {
   margin: auto;
   max-width: 1000px;
 
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
 }
 
