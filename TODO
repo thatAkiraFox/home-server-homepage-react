@@ -5,4 +5,3 @@
   - katbin
 - Add favicon
 - Start working on mobile layout
-- Move fetching of 'settings.json' from 'Header' to 'index'

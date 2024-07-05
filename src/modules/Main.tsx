@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import GroupContainer from "./components/GroupContainer";
-import {GroupInterface} from "./components/Interfaces";
+import {GroupInterface} from "./Interfaces.ts";
 
 export default function Main() {
     const [services, setServices] = useState([]);
