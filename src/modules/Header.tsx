@@ -2,7 +2,9 @@ import {SettingsInterface} from "./Interfaces.ts";
 
 export default function Header({hostname, logo}: SettingsInterface) {
     const useGenericLogo = () => {
-        return logo === null || logo === '' ? '/generic-header.png' : logo
+        return logo === null || logo === ''
+            ? '/generic-logos/generic-header.png'
+            : logo
     }
 
     return (

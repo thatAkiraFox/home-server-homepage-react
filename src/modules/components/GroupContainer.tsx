@@ -1,5 +1,5 @@
 import Button from "./Button";
-import {AppInterface} from "../Interfaces.ts";
+import {AppInterface, GroupInterface} from "../Interfaces.ts";
 
 function ButtonsContainer({appList}: { appList: AppInterface[] }) {
     return (
@@ -11,17 +11,11 @@ function ButtonsContainer({appList}: { appList: AppInterface[] }) {
     );
 }
 
-export default function GroupContainer({
-                                           name,
-                                           appList,
-                                       }: {
-    name: string | null;
-    appList: AppInterface[];
-}) {
+export default function GroupContainer({group}: { group: GroupInterface }) {
     return (
         <div className="group-container">
-            <h2 className="group-container-name">{name}</h2>
-            <ButtonsContainer appList={appList} key={name}/>
+            <h2 className="group-container-name">{group.name}</h2>
+            <ButtonsContainer appList={group.apps} key={group.name}/>
         </div>
     );
 }

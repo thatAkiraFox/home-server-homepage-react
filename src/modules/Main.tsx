@@ -16,8 +16,7 @@ export default function Main() {
         <main>
             {services.map((group: GroupInterface) => (
                 <GroupContainer
-                    name={group.name}
-                    appList={group.apps}
+                    group={group}
                     key={group.name}
                 />
             ))}

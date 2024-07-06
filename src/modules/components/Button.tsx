@@ -6,7 +6,8 @@ import {AppInterface} from "../Interfaces.ts";
  */
 function ButtonImg({logo}: { logo: string | null }) {
     if (logo === "" || logo === null) {
-        return <img className="button-logo" src="/generic-logo.png"/>;
+        return <img className="button-logo"
+                    src="/generic-logos/generic-button.png"/>;
     } else {
         return <img className="button-logo" src={logo}/>;
     }
@@ -50,9 +51,11 @@ function errorButtonConstructor() {
     );
 }
 
+/**
+ * If any configuration error is detected then create an error button, otherwise
+ * create a normal button
+ */
 export default function Button({app}: { app: AppInterface }) {
-    // Create an error button if any configuration error is detected, otherwise
-    // create a normal button
     return detectConfigErrors(app)
         ? errorButtonConstructor()
         : buttonConstructor(app);
