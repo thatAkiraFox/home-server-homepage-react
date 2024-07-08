@@ -39,7 +39,7 @@ function buttonConstructor(app: AppInterface) {
 function errorButtonConstructor() {
     return (
         <a
-            className="button error"
+            className="button error-button"
             href="https://katb.in/ayufihesufu"
             target="_blank"
         >

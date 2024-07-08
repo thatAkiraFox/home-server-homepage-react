@@ -71,6 +71,11 @@ main {
     }
 }
 
+.group-container-name-error {
+    color: crimson;
+    font-style: italic;
+}
+
 .button {
     display: flex;
     align-items: center;
@@ -121,7 +126,7 @@ main {
     transform: translateY(-5px);
 }
 
-.error {
+.error-button {
     display: flex;
     flex-direction: column;
     align-items: baseline;
