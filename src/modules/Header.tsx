@@ -1,10 +1,10 @@
 import {SettingsInterface} from "./Interfaces.ts";
 
-export default function Header({hostname, logo}: SettingsInterface) {
+export default function Header({settings}: { settings: SettingsInterface }) {
     const useGenericLogo = () => {
-        return logo === null || logo === ''
+        return settings.logo === null || settings.logo === ''
             ? '/generic-logos/generic-header.png'
-            : logo
+            : settings.logo
     }
 
     return (
@@ -12,7 +12,7 @@ export default function Header({hostname, logo}: SettingsInterface) {
             <img alt="Button logo" src={useGenericLogo()}
                  className="header-logo"/>
             <div className="header-text">
-                <span className="header-hostname">{hostname}</span>
+                <span className="header-hostname">{settings.hostname}</span>
                 <span className="header-label">Services Dashboard</span>
             </div>
         </div>

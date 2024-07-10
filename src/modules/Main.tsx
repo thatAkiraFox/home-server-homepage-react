@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import GroupContainer from "./components/GroupContainer";
 import {GroupInterface} from "./Interfaces.ts";
+import {toast} from "sonner";
 
 export default function Main() {
     const [services, setServices] = useState([]);
@@ -9,7 +10,10 @@ export default function Main() {
         fetch("/config/services.json")
             .then((res) => res.json())
             .then((data) => setServices(data))
-            .catch((err) => console.log(`error while fetching services\n${err}`));
+            .catch((err) => {
+                toast.error("Error fetching services.");
+                console.log(err);
+            });
     }, []);
 
     return (

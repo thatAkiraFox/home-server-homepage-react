@@ -2,6 +2,8 @@ import "./index.css";
 import Main from "./modules/Main";
 import Header from "./modules/Header";
 import {useEffect, useState} from "react";
+import {SettingsInterface} from "./modules/Interfaces.ts";
+import {toast, Toaster} from "sonner";
 
 function setPageTitle(hostname: string | null) {
     hostname == null || hostname == ""
@@ -10,24 +12,40 @@ function setPageTitle(hostname: string | null) {
 }
 
 export default function Index() {
-    const [hostname, setHostname] = useState("");
-    const [logo, setLogo] = useState("");
+    const [settings, setSettings] = useState<SettingsInterface>({
+        hostname: null,
+        logo: null
+    });
 
     useEffect(() => {
         fetch('/config/settings.json')
             .then(res => res.json())
-            .then(data => {
-                setHostname(data.hostname);
-                setLogo(data.logo);
-            })
-            .catch(err => console.log(`error while fetching settings.json: ${err}`));
+            .then(data => setSettings(data))
+            .catch(err => {
+                toast.error("Error fetching settings.json", {
+                    duration: Infinity,
+                    action: {
+                        label: "Read the docs",
+                        onClick: () => location.href = "https://katb.in/ayufihesufu"
+                    }
+                });
+                console.log(err);
+            });
     }, []);
 
-    setPageTitle(hostname);
+    setPageTitle(settings.hostname);
 
     return (
         <>
-            <Header hostname={hostname} logo={logo}/>
+            <Toaster richColors position={"top-right"} toastOptions={{
+                style: {
+                    borderRadius: "20px"
+                },
+                actionButtonStyle: {
+                    borderRadius: "20px"
+                }
+            }}/>
+            <Header settings={settings}/>
             <Main/>
         </>
     );
