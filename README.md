@@ -1,71 +1,87 @@
 # Disclaimer
 
-This is a personal project. Its sole purpose is to allow me to learn React and
-use it in a small project so that I can easily use it in an upcoming project
-for my university's Web Technologies course.
+This is a personal project. Its sole purpose is to let me learn React while also
+allowing me to have some fun by creating something useful (at least for me).
+
+# Credits
+
+Thanks to:
+
+- bastienwirtz for creating [Homer](https://github.com/bastienwirtz/homer), from
+  which this project takes inspiration.
+- [SphericalKat](https://github.com/SphericalKat) for creating
+  [Katbin](https://github.com/SphericalKat), allowing me to shorten some URLs
+  and thus saving some precious bytes of disk space.
+- [Google Fonts](https://fonts.google.com/) for the generic logos
 
 # Configuration
 
-This homepage accepts two configuration files: `services.json` and
-`settings.json`.
+This home page accepts two configuration files: `services.json` and
+`settings.json`, located inside the `config` folder.
 
 ### `settings.json`
 
-Starting with `settings.json`, it contains a single object with just two key-value
-pairs:
+This file contains a single object with just two key-value pairs:
 
-```jsonc
+```json5
 {
-  "hostname": null,
-  "logo": null
+  "hostname": "your server's hostname",
+  "logo": "path to custom header logo"
 }
 ```
 
-- `hostname` is a string that sets a label on top of the page header.\
-  If left `null` or set to an empty string, a generic hostname will be used.
-- `logo` can be an URL to a local file or to an external image.\
-  If left `null` or set to an empty string, a generic logo will be used.
+where:
+
+- `hostname` is a string that appears on top of the page title in the header.\
+  If set to `null` or to an empty string then it will be hidden.
+- `logo` is a string that contains the URL or the path to an image file to use
+  as a logo in the header.\
+  If set to `null` or to an empty string then a generic logo will be used.
 
 ### `services.json`
 
-This file contains an array of objects. Each objects defines an app group, and
-each app group contains an arbitrary number of apps.
+This file contains a set of objects:
+
+1. Each object identifies a group, which contains a name and a set of apps
+2. Each app is an object with a set of properties
 
 The file structure is as follows:
 
-```jsonc
+```json5
 // Array of app groups
 [
   // First app group
   {
     "name": "first group name",
-    "apps": [ // Apps inside the group
+    "apps": [
+      // Apps inside the group
       {
         "name": "first app name",
-        "url": "",
-        "logo": null
+        "description": "first app description",
+        "url": "button URL",
+        "logo": "path or URL to a custom logo for the app"
       },
       {
         "name": "second app name",
-        "url": "",
-        "logo": ""
+        "description": "...",
+        "url": "...",
+        "logo": "..."
       }
+      //,{...}
     ]
   },
-  // Second App Group
+  // Second app group
   {
-    ...
+    // ...
   }
 ]
 ```
 
-- Each app group contains a key-value pair for the app group name and an array
-  of objects (the apps in the group)
-- Each app is defined by three key-value pairs:
-  - `name` is the name of the app.\
-    If set to `null` or to an empty string, an error message will be displayed.
-  - `url` is the URL of the app where the user will be redirected upon clicking
-    on the relative button.\
-    If set to `null` or to an empty string, an error message will be displayed.
-  - `logo` is an URL to an internal or external image to use as an app logo.\
-    If set to `null` or to an empty string, a generic logo will be used.
+- Each group has a `name` property and contains an array of objects (apps)
+- Each app is defined by:
+  - `name`: name of the app, cannot be null or empty
+  - `description`: description of the app which will appear in the app button
+    underneath the app name
+  - `url`: URL where the user will be redirected upon clicking on the button.\
+    Cannot be null or empty
+  - `logo`: path or URL to the logo to use for the given app button

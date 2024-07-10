@@ -7,21 +7,18 @@ import {AppInterface} from "../Interfaces.ts";
 function ButtonImg({logo}: { logo: string | null }) {
     if (logo === "" || logo === null) {
         return <img className="button-logo"
-                    src="/generic-logos/generic-button.png"/>;
+                    src="/generic-logos/generic-button.png"
+                    alt="button logo"/>;
     } else {
-        return <img className="button-logo" src={logo}/>;
+        return <img className="button-logo" src={logo} alt="button logo"/>;
     }
 }
 
 /**
- * Detect if the given 'app' object has null or empty properties (except logo)
+ * Detect if the given 'app' object has null or empty 'name' or 'url' properties
  */
 function detectConfigErrors(app: AppInterface) {
-    for (const property in app) {
-        if (property != "logo" && (app[property] === null || app[property] === ""))
-            return true;
-    }
-    return false;
+    return (app.name === null || app.name === "" || app.url === null || app.url === "")
 }
 
 function buttonConstructor(app: AppInterface) {
