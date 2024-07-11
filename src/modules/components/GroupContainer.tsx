@@ -8,15 +8,14 @@ function isNameMissing(name: string | null) {
 function GroupContainerName({groupName}: { groupName: string | null }) {
     if (isNameMissing(groupName))
         return (
-            <h2 className="group-container-name group-container-name-error">
+            <span className="group-container-name group-container-name-error">
                 Group name missing!
-            </h2>
+            </span>
         );
-    else return <h2 className="group-container-name">{groupName}</h2>;
+    else return <span className="group-container-name">{groupName}</span>;
 }
 
 export default function GroupContainer({group}: { group: GroupInterface }) {
-
     return (
         <div className="group-container">
             <GroupContainerName groupName={group.name}/>

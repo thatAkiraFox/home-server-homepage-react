@@ -79,9 +79,9 @@ The file structure is as follows:
 
 - Each group has a `name` property and contains an array of objects (apps)
 - Each app is defined by:
-  - `name`: name of the app, cannot be null or empty
-  - `description`: description of the app which will appear in the app button
-    underneath the app name
-  - `url`: URL where the user will be redirected upon clicking on the button.\
-    Cannot be null or empty
-  - `logo`: path or URL to the logo to use for the given app button
+    - `name`: name of the app, cannot be null or empty
+    - `description`: description of the app which will appear in the app button
+      underneath the app name
+    - `url`: URL where the user will be redirected upon clicking on the button.\
+      Cannot be null or empty
+    - `logo`: path or URL to the logo to use for the given app button

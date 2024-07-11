@@ -26,7 +26,8 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
+    padding-top: 20px;
 }
 
 .header {
@@ -62,6 +63,12 @@ main {
 .group-container {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+
+    .group-container-name {
+        font-weight: bold;
+        font-size: 30px;
+    }
 
     .buttons-container {
         display: flex;
@@ -141,6 +148,7 @@ main {
     border-color: crimson;
 
     .error-title {
+        font-size: large;
         color: black;
         font-weight: 500;
     }
@@ -180,6 +188,10 @@ main {
 }
 
 @media screen and (max-width: 884px) {
+    body {
+        width: 100%;
+    }
+
     .header {
         .header-text {
             line-height: 32px;
@@ -191,6 +203,16 @@ main {
             .header-label {
                 font-size: 40px;
             }
+        }
+    }
+
+    .button {
+        .button-name {
+            font-size: x-large;
+        }
+
+        .button-description {
+            font-size: large;
         }
     }
 }
