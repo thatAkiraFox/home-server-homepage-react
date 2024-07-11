@@ -40,8 +40,9 @@ function errorButtonConstructor() {
             href="https://katb.in/ayufihesufu"
             target="_blank"
         >
-            <span className="error-title">Configuration error detected!</span>
-            <span className="error-description">
+            <span
+                className="error-button-title">Configuration error detected!</span>
+            <span className="error-button-description">
         Check your configuration or click here to read the documentation
       </span>
         </a>
