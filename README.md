@@ -38,7 +38,7 @@ This file contains a single object with just two key-value pairs:
 ```json5
 {
   "hostname": "your server's hostname",
-  "logo": "path to custom header logo"
+  "logo": "path or URL to custom header logo"
 }
 ```
 
