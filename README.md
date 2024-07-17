@@ -1,20 +1,32 @@
-# Disclaimer
+## Table of Contents
+
+<!-- TOC -->
+
+* [Disclaimer](#disclaimer)
+* [Credits](#credits)
+* [Configuration](#configuration)
+  * [`settings.json`](#settingsjson)
+  * [`services.json`](#servicesjson)
+* [Installation / Deployment](#installation--deployment)
+
+<!-- TOC -->
+
+## Disclaimer
 
 This is a personal project. Its sole purpose is to let me learn React while also
 allowing me to have some fun by creating something useful (at least for me).
 
-# Credits
+## Credits
 
 Thanks to:
 
 - bastienwirtz for creating [Homer](https://github.com/bastienwirtz/homer), from
   which this project takes inspiration.
-- [SphericalKat](https://github.com/SphericalKat) for creating
-  [Katbin](https://github.com/SphericalKat), allowing me to shorten some URLs
-  and thus saving some precious bytes of disk space.
+- SphericalKat for creating [Katbin](https://github.com/SphericalKat), allowing
+  me to shorten some URLs and thus saving some precious bytes of disk space.
 - [Google Fonts](https://fonts.google.com/) for the generic logos
 
-# Configuration
+## Configuration
 
 This home page accepts two configuration files: `services.json` and
 `settings.json`, located inside the `config` folder.
@@ -85,3 +97,14 @@ The file structure is as follows:
     - `url`: URL where the user will be redirected upon clicking on the button.\
       Cannot be null or empty
     - `logo`: path or URL to the logo to use for the given app button
+
+## Installation / Deployment
+
+You should be able to build and run the container with both Podman and Docker.
+
+```text
+git clone https://github.com/thatAkiraFox/home-server-homepage-react
+cd home-server-homepage-react
+podman build -t home-server-homepage-react .
+podman run -p <desired host port>:8080 -v <desired host directory>:/www/config/ home-server-homepage-react:latest
+```
