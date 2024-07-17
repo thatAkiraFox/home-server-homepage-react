@@ -11,7 +11,13 @@ export default function Main() {
             .then((res) => res.json())
             .then((data) => setServices(data))
             .catch((err) => {
-                toast.error("Error fetching services.");
+                toast.error("Error fetching services.json", {
+                    duration: Infinity,
+                    action: {
+                        label: "Read the docs",
+                        onClick: () => location.href = "https://katb.in/ayufihesufu"
+                    }
+                });
                 console.log(err);
             });
     }, []);

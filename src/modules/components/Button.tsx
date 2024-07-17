@@ -4,7 +4,7 @@ import {AppInterface} from "../Interfaces.ts";
  * Create an <img> HTML element that conditionally picks a generic icon when
  * the user doesn't provide a service-specific icon
  */
-function ButtonImg({logo}: { logo: string | null }) {
+function ButtonImg({logo}: { logo: string | undefined }) {
     if (logo === "" || logo === null) {
         return <img className="button-logo"
                     src="/generic-logos/generic-button.png"
@@ -23,7 +23,12 @@ function detectConfigErrors(app: AppInterface) {
 
 function buttonConstructor(app: AppInterface) {
     return (
-        <a className="button" href={"//" + app.url} target="_blank">
+        <a
+            className="button"
+            href={app.url}
+            target="_blank"
+            rel="noreferrer"
+        >
             <ButtonImg logo={app.logo}/>
             <div className="button-text">
                 <span className="button-name">{app.name}</span>
@@ -39,6 +44,7 @@ function errorButtonConstructor() {
             className="button error-button"
             href="https://katb.in/ayufihesufu"
             target="_blank"
+            rel="noreferrer"
         >
             <span
                 className="error-button-title">Configuration error detected!</span>

@@ -4,12 +4,12 @@ export interface GroupInterface {
 }
 
 export interface AppInterface {
-    name: string | null;
-    description: string | null;
-    url: string | null;
-    logo: string | null;
+    name: string | undefined;
+    description: string | undefined;
+    url: string | undefined;
+    logo: string | undefined;
 
-    [index: string]: string | null;
+    [index: string]: string | undefined;
 }
 
 export interface SettingsInterface {

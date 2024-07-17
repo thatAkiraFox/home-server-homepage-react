@@ -1,22 +1,22 @@
-## Table of Contents
+## 📝 Table of Contents
 
-<!-- TOC -->
-
-* [Disclaimer](#disclaimer)
-* [Credits](#credits)
-* [Configuration](#configuration)
+* [⚠️ Disclaimer](#-disclaimer)
+* [✨ Credits](#-credits)
+* [🛠️ Configuration](#-configuration)
   * [`settings.json`](#settingsjson)
   * [`services.json`](#servicesjson)
-* [Installation / Deployment](#installation--deployment)
+* [💾 Installation / Deployment](#-installation--deployment)
 
-<!-- TOC -->
-
-## Disclaimer
+## ⚠️ Disclaimer
 
 This is a personal project. Its sole purpose is to let me learn React while also
 allowing me to have some fun by creating something useful (at least for me).
 
-## Credits
+Contributions appreciated! This is my very first React (and web in general)
+project so, to the pros out there, I'm deeply sorry for the aberrations you
+**will** find in my code 💀
+
+## ✨ Credits
 
 Thanks to:
 
@@ -26,7 +26,7 @@ Thanks to:
   me to shorten some URLs and thus saving some precious bytes of disk space.
 - [Google Fonts](https://fonts.google.com/) for the generic logos
 
-## Configuration
+## 🛠️ Configuration
 
 This home page accepts two configuration files: `services.json` and
 `settings.json`, located inside the `config` folder.
@@ -98,7 +98,7 @@ The file structure is as follows:
       Cannot be null or empty
     - `logo`: path or URL to the logo to use for the given app button
 
-## Installation / Deployment
+## 💾 Installation / Deployment
 
 You should be able to build and run the container with both Podman and Docker.
 
