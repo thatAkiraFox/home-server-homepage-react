@@ -6,15 +6,24 @@ import {SettingsInterface} from "./modules/Interfaces.ts";
 import {toast, Toaster} from "sonner";
 
 function setPageTitle(hostname: string | null) {
-    hostname == null || hostname == ""
+    hostname === null || hostname === ""
         ? (document.title = "Services Dashboard")
         : (document.title = hostname + " | Services Dashboard");
+}
+
+function setFavicon(favicon: string | null) {
+    const link = document.querySelector("link[rel='icon']");
+    if (link)
+        favicon === null || favicon === ""
+            ? link.setAttribute("href", "/favicon.ico")
+            : link.setAttribute("href", favicon)
 }
 
 export default function Index() {
     const [settings, setSettings] = useState<SettingsInterface>({
         hostname: null,
-        logo: null
+        logo: null,
+        favicon: null
     });
 
     useEffect(() => {
@@ -34,6 +43,7 @@ export default function Index() {
     }, []);
 
     setPageTitle(settings.hostname);
+    setFavicon(settings.favicon);
 
     return (
         <>

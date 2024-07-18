@@ -7,7 +7,7 @@ import {AppInterface} from "../Interfaces.ts";
 function ButtonImg({logo}: { logo: string | undefined }) {
     if (logo === "" || logo === null) {
         return <img className="button-logo"
-                    src="/generic-logos/generic-button.png"
+                    src="/generic.png"
                     alt="button logo"/>;
     } else {
         return <img className="button-logo" src={logo} alt="button logo"/>;

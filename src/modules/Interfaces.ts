@@ -15,4 +15,5 @@ export interface AppInterface {
 export interface SettingsInterface {
     hostname: string | null;
     logo: string | null;
+    favicon: string | null;
 }

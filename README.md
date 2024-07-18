@@ -5,6 +5,7 @@
 * [🛠️ Configuration](#-configuration)
   * [`settings.json`](#settingsjson)
   * [`services.json`](#servicesjson)
+  * [Using custom icons](#using-custom-icons)
 * [💾 Installation / Deployment](#-installation--deployment)
 
 ## ⚠️ Disclaimer
@@ -33,12 +34,13 @@ This home page accepts two configuration files: `services.json` and
 
 ### `settings.json`
 
-This file contains a single object with just two key-value pairs:
+This file contains a single object with a bunch of key-value pairs:
 
 ```json5
 {
-  "hostname": "your server's hostname",
-  "logo": "path or URL to custom header logo"
+  "hostname": "your server's hostname (or whatever you want)",
+  "logo": "path or URL to a custom header logo",
+  "favicon": "path or URL to a custom favicon"
 }
 ```
 
@@ -49,6 +51,9 @@ where:
 - `logo` is a string that contains the URL or the path to an image file to use
   as a logo in the header.\
   If set to `null` or to an empty string then a generic logo will be used.
+- `favicon` is a string that contains the URL or the path to an image file
+  to use as a favicon.\
+  If set to `null` or to an empty string then a generic favicon will be used.
 
 ### `services.json`
 
@@ -97,6 +102,14 @@ The file structure is as follows:
     - `url`: URL where the user will be redirected upon clicking on the button.\
       Cannot be null or empty
     - `logo`: path or URL to the logo to use for the given app button
+
+### Using custom icons
+
+If you want to use local image files (good for loading speeds and to minimize
+network requests to external hosts) you can just place them in the exposed
+`/config` folder or create a new folder inside of it.
+
+From that moment, the file path will be `/config/path/to/image`.
 
 ## 💾 Installation / Deployment
 
