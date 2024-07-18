@@ -23,8 +23,9 @@ Thanks to:
 
 - bastienwirtz for creating [Homer](https://github.com/bastienwirtz/homer), from
   which this project takes inspiration.
-- SphericalKat for creating [Katbin](https://github.com/SphericalKat), allowing
-  me to shorten some URLs and thus saving some precious bytes of disk space.
+- SphericalKat for creating [Katbin](https://github.com/SphericalKat/katbin),
+  allowing me to shorten some URLs and thus saving some precious bytes of disk
+  space.
 - [Google Fonts](https://fonts.google.com/) for the generic logos
 
 ## 🛠️ Configuration
